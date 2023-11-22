@@ -1,0 +1,694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="addresses">
+          <Key>
+            <PropertyRef Name="add_id" />
+          </Key>
+          <Property Name="add_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+          <Property Name="postal" Type="nvarchar" MaxLength="10" />
+          <Property Name="street" Type="nvarchar" MaxLength="50" />
+          <Property Name="nr" Type="int" />
+        </EntityType>
+        <EntityType Name="locations">
+          <Key>
+            <PropertyRef Name="loc_id" />
+          </Key>
+          <Property Name="loc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+          <Property Name="address_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="meetings">
+          <Key>
+            <PropertyRef Name="meet_id" />
+          </Key>
+          <Property Name="meet_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patient_id" Type="int" Nullable="false" />
+          <Property Name="room_time_id" Type="int" Nullable="false" />
+          <Property Name="therapist_treatment_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="patients">
+          <Key>
+            <PropertyRef Name="pat_id" />
+          </Key>
+          <Property Name="pat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="varchar" MaxLength="10" />
+          <Property Name="address" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="room_times">
+          <Key>
+            <PropertyRef Name="rti_id" />
+          </Key>
+          <Property Name="rti_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_id" Type="int" Nullable="false" />
+          <Property Name="time_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rooms">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="location_id" Type="int" Nullable="false" />
+          <Property Name="room" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="therapist_treatments">
+          <Key>
+            <PropertyRef Name="ttr_id" />
+          </Key>
+          <Property Name="ttr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="therapist_id" Type="int" Nullable="false" />
+          <Property Name="treatment_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="therapists">
+          <Key>
+            <PropertyRef Name="the_id" />
+          </Key>
+          <Property Name="the_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="100" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="varchar" MaxLength="10" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="times">
+          <Key>
+            <PropertyRef Name="time_id" />
+          </Key>
+          <Property Name="time_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="time" Type="time" Precision="0" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="treatments">
+          <Key>
+            <PropertyRef Name="tre_id" />
+          </Key>
+          <Property Name="tre_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__locations__addre__5CD6CB2B">
+          <End Role="addresses" Type="Self.addresses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="locations" Type="Self.locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="add_id" />
+            </Principal>
+            <Dependent Role="locations">
+              <PropertyRef Name="address_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__meetings__patien__778AC167">
+          <End Role="patients" Type="Self.patients" Multiplicity="1" />
+          <End Role="meetings" Type="Self.meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patients">
+              <PropertyRef Name="pat_id" />
+            </Principal>
+            <Dependent Role="meetings">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__meetings__room_t__787EE5A0">
+          <End Role="room_times" Type="Self.room_times" Multiplicity="1" />
+          <End Role="meetings" Type="Self.meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room_times">
+              <PropertyRef Name="rti_id" />
+            </Principal>
+            <Dependent Role="meetings">
+              <PropertyRef Name="room_time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__meetings__therap__04E4BC85">
+          <End Role="therapist_treatments" Type="Self.therapist_treatments" Multiplicity="1" />
+          <End Role="meetings" Type="Self.meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="therapist_treatments">
+              <PropertyRef Name="ttr_id" />
+            </Principal>
+            <Dependent Role="meetings">
+              <PropertyRef Name="therapist_treatment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__patients__addres__571DF1D5">
+          <End Role="addresses" Type="Self.addresses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="patients" Type="Self.patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="add_id" />
+            </Principal>
+            <Dependent Role="patients">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__room_time__room___6477ECF3">
+          <End Role="rooms" Type="Self.rooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="room_times" Type="Self.room_times" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="room_times">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__room_time__time___656C112C">
+          <End Role="times" Type="Self.times" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="room_times" Type="Self.room_times" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="times">
+              <PropertyRef Name="time_id" />
+            </Principal>
+            <Dependent Role="room_times">
+              <PropertyRef Name="time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__rooms__location___5FB337D6">
+          <End Role="locations" Type="Self.locations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="rooms" Type="Self.rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="loc_id" />
+            </Principal>
+            <Dependent Role="rooms">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Table__therapist__73BA3083">
+          <End Role="therapists" Type="Self.therapists" Multiplicity="1" />
+          <End Role="therapist_treatments" Type="Self.therapist_treatments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="therapists">
+              <PropertyRef Name="the_id" />
+            </Principal>
+            <Dependent Role="therapist_treatments">
+              <PropertyRef Name="therapist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Table__treatment__74AE54BC">
+          <End Role="treatments" Type="Self.treatments" Multiplicity="1" />
+          <End Role="therapist_treatments" Type="Self.therapist_treatments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="treatments">
+              <PropertyRef Name="tre_id" />
+            </Principal>
+            <Dependent Role="therapist_treatments">
+              <PropertyRef Name="treatment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="addresses" EntityType="Self.addresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="locations" EntityType="Self.locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="meetings" EntityType="Self.meetings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="patients" EntityType="Self.patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="room_times" EntityType="Self.room_times" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rooms" EntityType="Self.rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="therapist_treatments" EntityType="Self.therapist_treatments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="therapists" EntityType="Self.therapists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="times" EntityType="Self.times" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="treatments" EntityType="Self.treatments" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__locations__addre__5CD6CB2B" Association="Self.FK__locations__addre__5CD6CB2B">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="locations" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__meetings__patien__778AC167" Association="Self.FK__meetings__patien__778AC167">
+            <End Role="patients" EntitySet="patients" />
+            <End Role="meetings" EntitySet="meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__meetings__room_t__787EE5A0" Association="Self.FK__meetings__room_t__787EE5A0">
+            <End Role="room_times" EntitySet="room_times" />
+            <End Role="meetings" EntitySet="meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__meetings__therap__04E4BC85" Association="Self.FK__meetings__therap__04E4BC85">
+            <End Role="therapist_treatments" EntitySet="therapist_treatments" />
+            <End Role="meetings" EntitySet="meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__patients__addres__571DF1D5" Association="Self.FK__patients__addres__571DF1D5">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="patients" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__room_time__room___6477ECF3" Association="Self.FK__room_time__room___6477ECF3">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="room_times" EntitySet="room_times" />
+          </AssociationSet>
+          <AssociationSet Name="FK__room_time__time___656C112C" Association="Self.FK__room_time__time___656C112C">
+            <End Role="times" EntitySet="times" />
+            <End Role="room_times" EntitySet="room_times" />
+          </AssociationSet>
+          <AssociationSet Name="FK__rooms__location___5FB337D6" Association="Self.FK__rooms__location___5FB337D6">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="rooms" EntitySet="rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Table__therapist__73BA3083" Association="Self.FK__Table__therapist__73BA3083">
+            <End Role="therapists" EntitySet="therapists" />
+            <End Role="therapist_treatments" EntitySet="therapist_treatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Table__treatment__74AE54BC" Association="Self.FK__Table__treatment__74AE54BC">
+            <End Role="treatments" EntitySet="treatments" />
+            <End Role="therapist_treatments" EntitySet="therapist_treatments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="addresses">
+          <Key>
+            <PropertyRef Name="add_id" />
+          </Key>
+          <Property Name="add_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="postal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nr" Type="Int32" />
+          <NavigationProperty Name="locations" Relationship="Self.FK__locations__addre__5CD6CB2B" FromRole="addresses" ToRole="locations" />
+          <NavigationProperty Name="patients" Relationship="Self.FK__patients__addres__571DF1D5" FromRole="addresses" ToRole="patients" />
+        </EntityType>
+        <EntityType Name="locations">
+          <Key>
+            <PropertyRef Name="loc_id" />
+          </Key>
+          <Property Name="loc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="address_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK__locations__addre__5CD6CB2B" FromRole="locations" ToRole="addresses" />
+          <NavigationProperty Name="rooms" Relationship="Self.FK__rooms__location___5FB337D6" FromRole="locations" ToRole="rooms" />
+        </EntityType>
+        <EntityType Name="meetings">
+          <Key>
+            <PropertyRef Name="meet_id" />
+          </Key>
+          <Property Name="meet_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patient_id" Type="Int32" Nullable="false" />
+          <Property Name="room_time_id" Type="Int32" Nullable="false" />
+          <Property Name="therapist_treatment_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="patients" Relationship="Self.FK__meetings__patien__778AC167" FromRole="meetings" ToRole="patients" />
+          <NavigationProperty Name="room_times" Relationship="Self.FK__meetings__room_t__787EE5A0" FromRole="meetings" ToRole="room_times" />
+          <NavigationProperty Name="therapist_treatments" Relationship="Self.FK__meetings__therap__04E4BC85" FromRole="meetings" ToRole="therapist_treatments" />
+        </EntityType>
+        <EntityType Name="patients">
+          <Key>
+            <PropertyRef Name="pat_id" />
+          </Key>
+          <Property Name="pat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="addresses" Relationship="Self.FK__patients__addres__571DF1D5" FromRole="patients" ToRole="addresses" />
+          <NavigationProperty Name="meetings" Relationship="Self.FK__meetings__patien__778AC167" FromRole="patients" ToRole="meetings" />
+        </EntityType>
+        <EntityType Name="room_times">
+          <Key>
+            <PropertyRef Name="rti_id" />
+          </Key>
+          <Property Name="rti_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_id" Type="Int32" Nullable="false" />
+          <Property Name="time_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="meetings" Relationship="Self.FK__meetings__room_t__787EE5A0" FromRole="room_times" ToRole="meetings" />
+          <NavigationProperty Name="rooms" Relationship="Self.FK__room_time__room___6477ECF3" FromRole="room_times" ToRole="rooms" />
+          <NavigationProperty Name="times" Relationship="Self.FK__room_time__time___656C112C" FromRole="room_times" ToRole="times" />
+        </EntityType>
+        <EntityType Name="rooms">
+          <Key>
+            <PropertyRef Name="room_id" />
+          </Key>
+          <Property Name="room_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="location_id" Type="Int32" Nullable="false" />
+          <Property Name="room" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="locations" Relationship="Self.FK__rooms__location___5FB337D6" FromRole="rooms" ToRole="locations" />
+          <NavigationProperty Name="room_times" Relationship="Self.FK__room_time__room___6477ECF3" FromRole="rooms" ToRole="room_times" />
+        </EntityType>
+        <EntityType Name="therapist_treatments">
+          <Key>
+            <PropertyRef Name="ttr_id" />
+          </Key>
+          <Property Name="ttr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="therapist_id" Type="Int32" Nullable="false" />
+          <Property Name="treatment_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="meetings" Relationship="Self.FK__meetings__therap__04E4BC85" FromRole="therapist_treatments" ToRole="meetings" />
+          <NavigationProperty Name="therapists" Relationship="Self.FK__Table__therapist__73BA3083" FromRole="therapist_treatments" ToRole="therapists" />
+          <NavigationProperty Name="treatments" Relationship="Self.FK__Table__treatment__74AE54BC" FromRole="therapist_treatments" ToRole="treatments" />
+        </EntityType>
+        <EntityType Name="therapists">
+          <Key>
+            <PropertyRef Name="the_id" />
+          </Key>
+          <Property Name="the_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="therapist_treatments" Relationship="Self.FK__Table__therapist__73BA3083" FromRole="therapists" ToRole="therapist_treatments" />
+        </EntityType>
+        <EntityType Name="times">
+          <Key>
+            <PropertyRef Name="time_id" />
+          </Key>
+          <Property Name="time_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="time" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="room_times" Relationship="Self.FK__room_time__time___656C112C" FromRole="times" ToRole="room_times" />
+        </EntityType>
+        <EntityType Name="treatments">
+          <Key>
+            <PropertyRef Name="tre_id" />
+          </Key>
+          <Property Name="tre_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="therapist_treatments" Relationship="Self.FK__Table__treatment__74AE54BC" FromRole="treatments" ToRole="therapist_treatments" />
+        </EntityType>
+        <Association Name="FK__locations__addre__5CD6CB2B">
+          <End Role="addresses" Type="Self.addresses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="locations" Type="Self.locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="add_id" />
+            </Principal>
+            <Dependent Role="locations">
+              <PropertyRef Name="address_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__patients__addres__571DF1D5">
+          <End Role="addresses" Type="Self.addresses" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="patients" Type="Self.patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="addresses">
+              <PropertyRef Name="add_id" />
+            </Principal>
+            <Dependent Role="patients">
+              <PropertyRef Name="address" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__rooms__location___5FB337D6">
+          <End Role="locations" Type="Self.locations" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="rooms" Type="Self.rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="locations">
+              <PropertyRef Name="loc_id" />
+            </Principal>
+            <Dependent Role="rooms">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__meetings__patien__778AC167">
+          <End Role="patients" Type="Self.patients" Multiplicity="1" />
+          <End Role="meetings" Type="Self.meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patients">
+              <PropertyRef Name="pat_id" />
+            </Principal>
+            <Dependent Role="meetings">
+              <PropertyRef Name="patient_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__meetings__room_t__787EE5A0">
+          <End Role="room_times" Type="Self.room_times" Multiplicity="1" />
+          <End Role="meetings" Type="Self.meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room_times">
+              <PropertyRef Name="rti_id" />
+            </Principal>
+            <Dependent Role="meetings">
+              <PropertyRef Name="room_time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__meetings__therap__04E4BC85">
+          <End Role="therapist_treatments" Type="Self.therapist_treatments" Multiplicity="1" />
+          <End Role="meetings" Type="Self.meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="therapist_treatments">
+              <PropertyRef Name="ttr_id" />
+            </Principal>
+            <Dependent Role="meetings">
+              <PropertyRef Name="therapist_treatment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__room_time__room___6477ECF3">
+          <End Role="rooms" Type="Self.rooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="room_times" Type="Self.room_times" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="room_id" />
+            </Principal>
+            <Dependent Role="room_times">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__room_time__time___656C112C">
+          <End Role="times" Type="Self.times" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="room_times" Type="Self.room_times" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="times">
+              <PropertyRef Name="time_id" />
+            </Principal>
+            <Dependent Role="room_times">
+              <PropertyRef Name="time_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Table__therapist__73BA3083">
+          <End Role="therapists" Type="Self.therapists" Multiplicity="1" />
+          <End Role="therapist_treatments" Type="Self.therapist_treatments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="therapists">
+              <PropertyRef Name="the_id" />
+            </Principal>
+            <Dependent Role="therapist_treatments">
+              <PropertyRef Name="therapist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Table__treatment__74AE54BC">
+          <End Role="treatments" Type="Self.treatments" Multiplicity="1" />
+          <End Role="therapist_treatments" Type="Self.therapist_treatments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="treatments">
+              <PropertyRef Name="tre_id" />
+            </Principal>
+            <Dependent Role="therapist_treatments">
+              <PropertyRef Name="treatment_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="addresses" EntityType="Self.addresses" />
+          <EntitySet Name="locations" EntityType="Self.locations" />
+          <EntitySet Name="meetings" EntityType="Self.meetings" />
+          <EntitySet Name="patients" EntityType="Self.patients" />
+          <EntitySet Name="room_times" EntityType="Self.room_times" />
+          <EntitySet Name="rooms" EntityType="Self.rooms" />
+          <EntitySet Name="therapist_treatments" EntityType="Self.therapist_treatments" />
+          <EntitySet Name="therapists" EntityType="Self.therapists" />
+          <EntitySet Name="times" EntityType="Self.times" />
+          <EntitySet Name="treatments" EntityType="Self.treatments" />
+          <AssociationSet Name="FK__locations__addre__5CD6CB2B" Association="Self.FK__locations__addre__5CD6CB2B">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="locations" EntitySet="locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK__patients__addres__571DF1D5" Association="Self.FK__patients__addres__571DF1D5">
+            <End Role="addresses" EntitySet="addresses" />
+            <End Role="patients" EntitySet="patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__rooms__location___5FB337D6" Association="Self.FK__rooms__location___5FB337D6">
+            <End Role="locations" EntitySet="locations" />
+            <End Role="rooms" EntitySet="rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__meetings__patien__778AC167" Association="Self.FK__meetings__patien__778AC167">
+            <End Role="patients" EntitySet="patients" />
+            <End Role="meetings" EntitySet="meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__meetings__room_t__787EE5A0" Association="Self.FK__meetings__room_t__787EE5A0">
+            <End Role="room_times" EntitySet="room_times" />
+            <End Role="meetings" EntitySet="meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__meetings__therap__04E4BC85" Association="Self.FK__meetings__therap__04E4BC85">
+            <End Role="therapist_treatments" EntitySet="therapist_treatments" />
+            <End Role="meetings" EntitySet="meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__room_time__room___6477ECF3" Association="Self.FK__room_time__room___6477ECF3">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="room_times" EntitySet="room_times" />
+          </AssociationSet>
+          <AssociationSet Name="FK__room_time__time___656C112C" Association="Self.FK__room_time__time___656C112C">
+            <End Role="times" EntitySet="times" />
+            <End Role="room_times" EntitySet="room_times" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Table__therapist__73BA3083" Association="Self.FK__Table__therapist__73BA3083">
+            <End Role="therapists" EntitySet="therapists" />
+            <End Role="therapist_treatments" EntitySet="therapist_treatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Table__treatment__74AE54BC" Association="Self.FK__Table__treatment__74AE54BC">
+            <End Role="treatments" EntitySet="treatments" />
+            <End Role="therapist_treatments" EntitySet="therapist_treatments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="addresses">
+            <EntityTypeMapping TypeName="DatabaseModel.addresses">
+              <MappingFragment StoreEntitySet="addresses">
+                <ScalarProperty Name="add_id" ColumnName="add_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="postal" ColumnName="postal" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="nr" ColumnName="nr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="locations">
+            <EntityTypeMapping TypeName="DatabaseModel.locations">
+              <MappingFragment StoreEntitySet="locations">
+                <ScalarProperty Name="loc_id" ColumnName="loc_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="meetings">
+            <EntityTypeMapping TypeName="DatabaseModel.meetings">
+              <MappingFragment StoreEntitySet="meetings">
+                <ScalarProperty Name="meet_id" ColumnName="meet_id" />
+                <ScalarProperty Name="patient_id" ColumnName="patient_id" />
+                <ScalarProperty Name="room_time_id" ColumnName="room_time_id" />
+                <ScalarProperty Name="therapist_treatment_id" ColumnName="therapist_treatment_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="patients">
+            <EntityTypeMapping TypeName="DatabaseModel.patients">
+              <MappingFragment StoreEntitySet="patients">
+                <ScalarProperty Name="pat_id" ColumnName="pat_id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="room_times">
+            <EntityTypeMapping TypeName="DatabaseModel.room_times">
+              <MappingFragment StoreEntitySet="room_times">
+                <ScalarProperty Name="rti_id" ColumnName="rti_id" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="time_id" ColumnName="time_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rooms">
+            <EntityTypeMapping TypeName="DatabaseModel.rooms">
+              <MappingFragment StoreEntitySet="rooms">
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="room" ColumnName="room" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="therapist_treatments">
+            <EntityTypeMapping TypeName="DatabaseModel.therapist_treatments">
+              <MappingFragment StoreEntitySet="therapist_treatments">
+                <ScalarProperty Name="ttr_id" ColumnName="ttr_id" />
+                <ScalarProperty Name="therapist_id" ColumnName="therapist_id" />
+                <ScalarProperty Name="treatment_id" ColumnName="treatment_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="therapists">
+            <EntityTypeMapping TypeName="DatabaseModel.therapists">
+              <MappingFragment StoreEntitySet="therapists">
+                <ScalarProperty Name="the_id" ColumnName="the_id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="times">
+            <EntityTypeMapping TypeName="DatabaseModel.times">
+              <MappingFragment StoreEntitySet="times">
+                <ScalarProperty Name="time_id" ColumnName="time_id" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="treatments">
+            <EntityTypeMapping TypeName="DatabaseModel.treatments">
+              <MappingFragment StoreEntitySet="treatments">
+                <ScalarProperty Name="tre_id" ColumnName="tre_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

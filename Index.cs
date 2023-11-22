@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using therapyDB.form;
 
 namespace therapyDB
 {
@@ -15,21 +16,36 @@ namespace therapyDB
         public Index()
         {
             InitializeComponent();
-
-            using (var context = new TherapyDBContext())
-            {
-                var patients = context.Patients.ToList();
-
-                foreach (var patient in patients)
-                {
-                    Console.WriteLine($"Patient ID: {patient.Id}, Name: {patient.FirstName} {patient.LastName}");
-                }
-            }
         }
 
         private void copyright_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/ByAlexius");
+        }
+
+        private void patient_files_Click(object sender, EventArgs e)
+        {
+            new Patients().Show();
+        }
+
+        private void therapist_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void locations_buttons_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void treatments_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void times_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
