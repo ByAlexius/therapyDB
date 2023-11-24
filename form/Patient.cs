@@ -26,6 +26,7 @@ namespace therapyDB.form
             if (user_id == 0)
             {
                 this.Text = $"TMS - New Patient";
+                delete_button.Enabled = false;
             }
             else
             {
@@ -64,6 +65,19 @@ namespace therapyDB.form
             Close();
             Dispose();
             GC.Collect();
+        }
+
+        private void save_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void delete_button_Click(object sender, EventArgs e)
+        {
+            if (localPatient == null && !delete_button.Enabled)
+            {
+                return;
+            }
         }
     }
 }
