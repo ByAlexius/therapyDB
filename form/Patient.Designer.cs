@@ -38,7 +38,7 @@
             this.lastname_text = new System.Windows.Forms.TextBox();
             this.lastname_label = new System.Windows.Forms.Label();
             this.meetings_label = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.phone_text = new System.Windows.Forms.TextBox();
             this.phone_label = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.open_button = new System.Windows.Forms.Button();
@@ -47,7 +47,7 @@
             // 
             // save_button
             // 
-            this.save_button.Location = new System.Drawing.Point(66, 336);
+            this.save_button.Location = new System.Drawing.Point(66, 255);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(194, 23);
             this.save_button.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             // delete_button
             // 
-            this.delete_button.Location = new System.Drawing.Point(391, 336);
+            this.delete_button.Location = new System.Drawing.Point(391, 255);
             this.delete_button.Name = "delete_button";
             this.delete_button.Size = new System.Drawing.Size(194, 23);
             this.delete_button.TabIndex = 1;
@@ -122,12 +122,12 @@
             this.meetings_label.TabIndex = 8;
             this.meetings_label.Text = "Meetings";
             // 
-            // textBox4
+            // phone_text
             // 
-            this.textBox4.Location = new System.Drawing.Point(498, 71);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(152, 20);
-            this.textBox4.TabIndex = 11;
+            this.phone_text.Location = new System.Drawing.Point(498, 71);
+            this.phone_text.Name = "phone_text";
+            this.phone_text.Size = new System.Drawing.Size(152, 20);
+            this.phone_text.TabIndex = 11;
             // 
             // phone_label
             // 
@@ -143,7 +143,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(433, 162);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 21);
+            this.comboBox1.Size = new System.Drawing.Size(176, 21);
             this.comboBox1.TabIndex = 12;
             // 
             // open_button
@@ -154,6 +154,7 @@
             this.open_button.TabIndex = 13;
             this.open_button.Text = "Open";
             this.open_button.UseVisualStyleBackColor = true;
+            this.open_button.Click += new System.EventHandler(this.open_button_Click);
             // 
             // address_change_button
             // 
@@ -163,16 +164,17 @@
             this.address_change_button.TabIndex = 14;
             this.address_change_button.Text = "Change";
             this.address_change_button.UseVisualStyleBackColor = true;
+            this.address_change_button.Click += new System.EventHandler(this.address_change_button_Click);
             // 
             // Patient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 366);
+            this.ClientSize = new System.Drawing.Size(725, 296);
             this.Controls.Add(this.address_change_button);
             this.Controls.Add(this.open_button);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.phone_text);
             this.Controls.Add(this.phone_label);
             this.Controls.Add(this.meetings_label);
             this.Controls.Add(this.lastname_text);
@@ -202,7 +204,7 @@
         private System.Windows.Forms.TextBox lastname_text;
         private System.Windows.Forms.Label lastname_label;
         private System.Windows.Forms.Label meetings_label;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox phone_text;
         private System.Windows.Forms.Label phone_label;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button open_button;

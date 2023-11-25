@@ -38,21 +38,22 @@ namespace therapyDB.form
 
             using (DatabaseEntities db = new DatabaseEntities())
             {
-                List<patients> data = db.patients.OrderBy(e => e.pat_id).ToList();
+                var data = db.patients.OrderBy(e => e.pat_id).Select(e => new
+                {
+                    e.pat_id,
+                    e.firstname,
+                    e.lastname,
+                    e.phone,
+                    e.address
+                }).ToList();
 
                 Patients_datagrid.DataSource = data;
-            }
 
-            Console.WriteLine(Patients_datagrid.Columns.Count);
-
-            try
-            {
                 foreach (DataGridViewTextBoxColumn item in Patients_datagrid.Columns)
                 {
                     item.ReadOnly = true;
                 }
             }
-            catch { }
         }
 
         private void Patients_datagrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

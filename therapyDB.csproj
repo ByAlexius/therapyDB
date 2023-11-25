@@ -126,6 +126,12 @@
     <Compile Include="form\Patient.Designer.cs">
       <DependentUpon>Patient.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\PatientAddressSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\PatientAddressSelector.Designer.cs">
+      <DependentUpon>PatientAddressSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\Patients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="form\Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\PatientAddressSelector.resx">
+      <DependentUpon>PatientAddressSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
@@ -197,6 +206,7 @@
       <DependentUpon>DBEntities.edmx</DependentUpon>
       <LastGenOutput>DBEntities.cs</LastGenOutput>
     </Content>
+    <Content Include="FixTableSeeds.sql" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
