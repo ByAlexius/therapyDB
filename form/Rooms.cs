@@ -86,7 +86,7 @@ namespace therapyDB.form
 
         private void room_times_button_Click(object sender, EventArgs e)
         {
-
+            new RoomTimes().Show();
         }
     }
 }

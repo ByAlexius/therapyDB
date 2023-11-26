@@ -47,6 +47,7 @@
             this.time_change_button.TabIndex = 28;
             this.time_change_button.Text = "Change";
             this.time_change_button.UseVisualStyleBackColor = true;
+            this.time_change_button.Click += new System.EventHandler(this.time_change_button_Click);
             // 
             // time_text
             // 
@@ -88,6 +89,7 @@
             this.delete_button.TabIndex = 23;
             this.delete_button.Text = "Delete";
             this.delete_button.UseVisualStyleBackColor = true;
+            this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
             // 
             // save_button
             // 
@@ -97,6 +99,7 @@
             this.save_button.TabIndex = 22;
             this.save_button.Text = "Save";
             this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
             // room_change_button
             // 
@@ -106,6 +109,7 @@
             this.room_change_button.TabIndex = 29;
             this.room_change_button.Text = "Change";
             this.room_change_button.UseVisualStyleBackColor = true;
+            this.room_change_button.Click += new System.EventHandler(this.room_change_button_Click);
             // 
             // RoomTime
             // 
@@ -124,6 +128,7 @@
             this.Name = "RoomTime";
             this.Text = "TMS - Room Time";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RoomTime_FormClosed);
+            this.Load += new System.EventHandler(this.RoomTime_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
