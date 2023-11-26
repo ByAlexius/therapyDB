@@ -22,7 +22,6 @@ namespace therapyDB.form
         {
             this.Dispose();
             GC.Collect();
-            Console.WriteLine(GC.GetGeneration(this));
         }
 
         private void Patients_Load(object sender, EventArgs e)
@@ -68,13 +67,26 @@ namespace therapyDB.form
                     return;
                 }
 
-                new Patient(id ?? 0).Show();
+                Patient patient = new Patient(id ?? 0);
+
+                patient.PatientClosed += PatientFormClosedHandle;
+
+                patient.Show();
             }
         }
 
         private void create_button_Click(object sender, EventArgs e)
         {
-            new Patient(0).Show();
+            Patient patient = new Patient(0);
+
+            patient.PatientClosed += PatientFormClosedHandle;
+
+            patient.Show();
+        }
+
+        private void PatientFormClosedHandle(object sender, bool closed)
+        {
+            PopulateDataGridView();
         }
 
         private void search_box_TextChanged(object sender, EventArgs e)

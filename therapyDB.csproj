@@ -120,23 +120,53 @@
     <Compile Include="data\treatments.cs">
       <DependentUpon>DBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="form\Location.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Location.Designer.cs">
+      <DependentUpon>Location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Locations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Locations.Designer.cs">
+      <DependentUpon>Locations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\NewAddress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\NewAddress.Designer.cs">
+      <DependentUpon>NewAddress.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\Patient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="form\Patient.Designer.cs">
       <DependentUpon>Patient.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\PatientAddressSelector.cs">
+    <Compile Include="form\AddressSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\PatientAddressSelector.Designer.cs">
-      <DependentUpon>PatientAddressSelector.cs</DependentUpon>
+    <Compile Include="form\AddressSelector.Designer.cs">
+      <DependentUpon>AddressSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="form\Patients.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="form\Patients.Designer.cs">
       <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Treatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Treatment.Designer.cs">
+      <DependentUpon>Treatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Treatments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Treatments.Designer.cs">
+      <DependentUpon>Treatments.cs</DependentUpon>
     </Compile>
     <Compile Include="Index.cs">
       <SubType>Form</SubType>
@@ -146,14 +176,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="form\NewAddress.resx">
+      <DependentUpon>NewAddress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form\PatientAddressSelector.resx">
-      <DependentUpon>PatientAddressSelector.cs</DependentUpon>
+    <EmbeddedResource Include="form\AddressSelector.resx">
+      <DependentUpon>AddressSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Treatment.resx">
+      <DependentUpon>Treatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Treatments.resx">
+      <DependentUpon>Treatments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Index.resx">
       <DependentUpon>Index.cs</DependentUpon>

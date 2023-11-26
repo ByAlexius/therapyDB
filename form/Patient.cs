@@ -13,6 +13,8 @@ namespace therapyDB.form
 {
     public partial class Patient : Form
     {
+        public event EventHandler<bool> PatientClosed;
+
         private patients localPatient = null;
 
         private int user_id = 0;
@@ -112,16 +114,16 @@ namespace therapyDB.form
 
         private void address_change_button_Click(object sender, EventArgs e)
         {
-            PatientAddressSelector selector = new PatientAddressSelector();
+            AddressSelector selector = new AddressSelector();
 
             selector.PatientAddressSelectorClosed += selectorClosedHandler;
 
-            selector.Show();
+            selector.ShowDialog();
         }
 
         private void selectorClosedHandler(object sender, int id)
         {
-            if (sender is PatientAddressSelector selector)
+            if (sender is AddressSelector selector)
             {
                 selector.PatientAddressSelectorClosed -= selectorClosedHandler;
             }
@@ -150,6 +152,14 @@ namespace therapyDB.form
         private void open_button_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Patient_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            PatientClosed?.Invoke(this, true);
+
+            this.Dispose();
+            GC.Collect();
         }
     }
 }

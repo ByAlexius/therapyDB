@@ -188,6 +188,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Patient";
             this.Text = "PLACEHOLDER";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Patient_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
