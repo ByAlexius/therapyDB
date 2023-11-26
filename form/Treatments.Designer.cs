@@ -29,28 +29,20 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Treatments));
-            this.search_box = new System.Windows.Forms.TextBox();
             this.create_button = new System.Windows.Forms.Button();
             this.Treatments_datagrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Treatments_datagrid)).BeginInit();
             this.SuspendLayout();
             // 
-            // search_box
-            // 
-            this.search_box.Location = new System.Drawing.Point(12, 13);
-            this.search_box.Name = "search_box";
-            this.search_box.Size = new System.Drawing.Size(330, 20);
-            this.search_box.TabIndex = 5;
-            this.search_box.TextChanged += new System.EventHandler(this.search_box_TextChanged);
-            // 
             // create_button
             // 
-            this.create_button.Location = new System.Drawing.Point(653, 13);
+            this.create_button.Location = new System.Drawing.Point(295, 12);
             this.create_button.Name = "create_button";
-            this.create_button.Size = new System.Drawing.Size(107, 23);
+            this.create_button.Size = new System.Drawing.Size(226, 23);
             this.create_button.TabIndex = 4;
             this.create_button.Text = "New Treatment";
             this.create_button.UseVisualStyleBackColor = true;
+            this.create_button.Click += new System.EventHandler(this.create_button_Click);
             // 
             // Treatments_datagrid
             // 
@@ -63,13 +55,13 @@
             this.Treatments_datagrid.ReadOnly = true;
             this.Treatments_datagrid.Size = new System.Drawing.Size(776, 390);
             this.Treatments_datagrid.TabIndex = 3;
+            this.Treatments_datagrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Treatments_datagrid_CellMouseDoubleClick);
             // 
             // Treatments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.search_box);
             this.Controls.Add(this.create_button);
             this.Controls.Add(this.Treatments_datagrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -79,13 +71,10 @@
             this.Load += new System.EventHandler(this.Treatments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Treatments_datagrid)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox search_box;
         private System.Windows.Forms.Button create_button;
         private System.Windows.Forms.DataGridView Treatments_datagrid;
     }

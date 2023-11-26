@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -65,6 +66,7 @@ namespace therapyDB.form
             lastname_text.Text = localPatient.lastname;
             phone_text.Text = localPatient.phone;
             address_id = localPatient.address;
+            loadAddress();
         }
 
         private void saveDataIntoPatient()
@@ -78,12 +80,7 @@ namespace therapyDB.form
 
             using (DatabaseEntities db = new DatabaseEntities())
             {
-                if (user_id >= 1)
-                {
-                    db.patients.Remove(db.patients.Where(x => x.pat_id == user_id).First());
-                }
-
-                db.patients.Add(localPatient);
+                db.patients.AddOrUpdate(localPatient);
                 
                 db.SaveChanges();
             }
@@ -110,6 +107,20 @@ namespace therapyDB.form
             {
                 return;
             }
+
+            if (user_id == 0)
+            {
+                return;
+            }
+
+            using (DatabaseEntities db = new DatabaseEntities())
+            {
+                db.patients.Remove(db.patients.Where(x => x.pat_id == user_id).First());
+
+                db.SaveChanges();
+            }
+
+            Close();
         }
 
         private void address_change_button_Click(object sender, EventArgs e)
@@ -135,18 +146,7 @@ namespace therapyDB.form
                 return;
             }
 
-            using (DatabaseEntities db = new DatabaseEntities())
-            {
-                addresses adr = db.addresses.Where(x => x.add_id == address_id).First();
-
-                if (adr == null)
-                {
-                    MessageBox.Show("There was an error loading the data from the selected address!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                address_text.Text = $"{adr.postal} {adr.city}, {adr.street} {adr.nr}";
-            }
+            loadAddress();
         }
 
         private void open_button_Click(object sender, EventArgs e)
@@ -160,6 +160,22 @@ namespace therapyDB.form
 
             this.Dispose();
             GC.Collect();
+        }
+
+        private void loadAddress()
+        {
+            using (DatabaseEntities db = new DatabaseEntities())
+            {
+                addresses adr = db.addresses.Where(x => x.add_id == address_id).First();
+
+                if (adr == null)
+                {
+                    MessageBox.Show("There was an error loading the data from the selected address!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                address_text.Text = $"{adr.postal} {adr.city}, {adr.street} {adr.nr}";
+            }
         }
     }
 }

@@ -35,17 +35,17 @@ namespace therapyDB
 
         private void locations_buttons_Click(object sender, EventArgs e)
         {
-
+            new Locations().Show();
         }
 
         private void treatments_button_Click(object sender, EventArgs e)
         {
-
+            new Treatments().Show();
         }
 
         private void times_button_Click(object sender, EventArgs e)
         {
-
+            new Times().Show();
         }
     }
 }

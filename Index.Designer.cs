@@ -36,13 +36,15 @@
             this.times_button = new System.Windows.Forms.Button();
             this.treatments_button = new System.Windows.Forms.Button();
             this.welcome = new System.Windows.Forms.Label();
+            this.meetings_button = new System.Windows.Forms.Button();
+            this.address_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // patient_files
             // 
             this.patient_files.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.patient_files.Location = new System.Drawing.Point(84, 146);
+            this.patient_files.Location = new System.Drawing.Point(80, 211);
             this.patient_files.Name = "patient_files";
             this.patient_files.Size = new System.Drawing.Size(154, 51);
             this.patient_files.TabIndex = 0;
@@ -64,7 +66,7 @@
             // therapist_button
             // 
             this.therapist_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.therapist_button.Location = new System.Drawing.Point(340, 146);
+            this.therapist_button.Location = new System.Drawing.Point(336, 211);
             this.therapist_button.Name = "therapist_button";
             this.therapist_button.Size = new System.Drawing.Size(154, 51);
             this.therapist_button.TabIndex = 2;
@@ -76,7 +78,7 @@
             // 
             this.locations_buttons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.locations_buttons.Location = new System.Drawing.Point(577, 146);
+            this.locations_buttons.Location = new System.Drawing.Point(573, 211);
             this.locations_buttons.Name = "locations_buttons";
             this.locations_buttons.Size = new System.Drawing.Size(154, 51);
             this.locations_buttons.TabIndex = 3;
@@ -87,7 +89,7 @@
             // times_button
             // 
             this.times_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.times_button.Location = new System.Drawing.Point(457, 244);
+            this.times_button.Location = new System.Drawing.Point(453, 309);
             this.times_button.Name = "times_button";
             this.times_button.Size = new System.Drawing.Size(154, 51);
             this.times_button.TabIndex = 4;
@@ -98,7 +100,7 @@
             // treatments_button
             // 
             this.treatments_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.treatments_button.Location = new System.Drawing.Point(213, 244);
+            this.treatments_button.Location = new System.Drawing.Point(209, 309);
             this.treatments_button.Name = "treatments_button";
             this.treatments_button.Size = new System.Drawing.Size(154, 51);
             this.treatments_button.TabIndex = 5;
@@ -117,11 +119,33 @@
             this.welcome.TabIndex = 6;
             this.welcome.Text = "Welcome to the TMS";
             // 
+            // meetings_button
+            // 
+            this.meetings_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.meetings_button.Location = new System.Drawing.Point(209, 116);
+            this.meetings_button.Name = "meetings_button";
+            this.meetings_button.Size = new System.Drawing.Size(154, 51);
+            this.meetings_button.TabIndex = 8;
+            this.meetings_button.Text = "Meetings";
+            this.meetings_button.UseVisualStyleBackColor = true;
+            // 
+            // address_button
+            // 
+            this.address_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.address_button.Location = new System.Drawing.Point(453, 116);
+            this.address_button.Name = "address_button";
+            this.address_button.Size = new System.Drawing.Size(154, 51);
+            this.address_button.TabIndex = 7;
+            this.address_button.Text = "Addresses";
+            this.address_button.UseVisualStyleBackColor = true;
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.meetings_button);
+            this.Controls.Add(this.address_button);
             this.Controls.Add(this.welcome);
             this.Controls.Add(this.treatments_button);
             this.Controls.Add(this.times_button);
@@ -147,5 +171,7 @@
         private System.Windows.Forms.Button times_button;
         private System.Windows.Forms.Button treatments_button;
         private System.Windows.Forms.Label welcome;
+        private System.Windows.Forms.Button meetings_button;
+        private System.Windows.Forms.Button address_button;
     }
 }

@@ -132,11 +132,11 @@
     <Compile Include="form\Locations.Designer.cs">
       <DependentUpon>Locations.cs</DependentUpon>
     </Compile>
-    <Compile Include="form\NewAddress.cs">
+    <Compile Include="form\Address.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form\NewAddress.Designer.cs">
-      <DependentUpon>NewAddress.cs</DependentUpon>
+    <Compile Include="form\Address.Designer.cs">
+      <DependentUpon>Address.cs</DependentUpon>
     </Compile>
     <Compile Include="form\Patient.cs">
       <SubType>Form</SubType>
@@ -155,6 +155,18 @@
     </Compile>
     <Compile Include="form\Patients.Designer.cs">
       <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Time.Designer.cs">
+      <DependentUpon>Time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Times.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Times.Designer.cs">
+      <DependentUpon>Times.cs</DependentUpon>
     </Compile>
     <Compile Include="form\Treatment.cs">
       <SubType>Form</SubType>
@@ -176,8 +188,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="form\NewAddress.resx">
-      <DependentUpon>NewAddress.cs</DependentUpon>
+    <EmbeddedResource Include="form\Location.resx">
+      <DependentUpon>Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Locations.resx">
+      <DependentUpon>Locations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Address.resx">
+      <DependentUpon>Address.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>
@@ -187,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Time.resx">
+      <DependentUpon>Time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Times.resx">
+      <DependentUpon>Times.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Treatment.resx">
       <DependentUpon>Treatment.cs</DependentUpon>

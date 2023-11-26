@@ -26,8 +26,6 @@ namespace therapyDB.form
 
         private void Treatments_Load(object sender, EventArgs e)
         {
-            search_box.Text = string.Empty;
-            search_box.Text = "Search...";
             PopulateDataGridView();
         }
 
@@ -52,30 +50,38 @@ namespace therapyDB.form
             }
         }
 
-        private void search_box_TextChanged(object sender, EventArgs e)
+        private void Treatments_datagrid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string searchTerm = search_box.Text.ToLower();
-
-            if (search_box.Text.Trim() == "Search...")
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
-                return;
-            }
+                int? id = (int)Treatments_datagrid.Rows[e.RowIndex].Cells[0].Value;
 
-            foreach (DataGridViewRow row in Treatments_datagrid.Rows)
-            {
-                bool matchFound = false;
-
-                foreach (DataGridViewCell cell in row.Cells)
+                if (id == null || id == 0)
                 {
-                    if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchTerm))
-                    {
-                        matchFound = true;
-                        break;
-                    }
+                    MessageBox.Show("Please select an valid row!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                row.Visible = matchFound;
+                Treatment treatment = new Treatment(id ?? 0);
+
+                treatment.NewTreatmentClosed += NewTreatmentFormClosedHandle;
+
+                treatment.ShowDialog();
             }
+        }
+
+        private void NewTreatmentFormClosedHandle(object sender, bool e)
+        {
+            PopulateDataGridView();
+        }
+
+        private void create_button_Click(object sender, EventArgs e)
+        {
+            Treatment treatment = new Treatment(0);
+
+            treatment.NewTreatmentClosed += NewTreatmentFormClosedHandle;
+
+            treatment.ShowDialog();
         }
     }
 }

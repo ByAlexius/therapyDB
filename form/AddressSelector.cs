@@ -74,7 +74,7 @@ namespace therapyDB.form
 
         private void new_address_button_Click(object sender, EventArgs e)
         {
-            NewAddress newAddress = new NewAddress();
+            Address newAddress = new Address(0);
 
             newAddress.NewAddressClosed += newAddressClosedHandle;
 

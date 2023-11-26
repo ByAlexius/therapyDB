@@ -26,8 +26,6 @@ namespace therapyDB.form
 
         private void Patients_Load(object sender, EventArgs e)
         {
-            search_box.Text = string.Empty;
-            search_box.Text = "Search...";
             PopulateDataGridView();
         }
 
@@ -87,32 +85,6 @@ namespace therapyDB.form
         private void PatientFormClosedHandle(object sender, bool closed)
         {
             PopulateDataGridView();
-        }
-
-        private void search_box_TextChanged(object sender, EventArgs e)
-        {
-            string searchTerm = search_box.Text.ToLower();
-
-            if (search_box.Text.Trim() == "Search...")
-            {
-                return;
-            }
-
-            foreach (DataGridViewRow row in Patients_datagrid.Rows)
-            {
-                bool matchFound = false;
-
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchTerm))
-                    {
-                        matchFound = true;
-                        break;
-                    }
-                }
-
-                row.Visible = matchFound;
-            }
         }
     }
 }

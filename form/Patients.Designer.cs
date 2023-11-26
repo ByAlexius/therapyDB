@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patients));
             this.Patients_datagrid = new System.Windows.Forms.DataGridView();
             this.create_button = new System.Windows.Forms.Button();
-            this.search_box = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Patients_datagrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,28 +49,19 @@
             // 
             // create_button
             // 
-            this.create_button.Location = new System.Drawing.Point(653, 13);
+            this.create_button.Location = new System.Drawing.Point(294, 19);
             this.create_button.Name = "create_button";
-            this.create_button.Size = new System.Drawing.Size(107, 23);
+            this.create_button.Size = new System.Drawing.Size(214, 23);
             this.create_button.TabIndex = 1;
             this.create_button.Text = "New Patient";
             this.create_button.UseVisualStyleBackColor = true;
             this.create_button.Click += new System.EventHandler(this.create_button_Click);
-            // 
-            // search_box
-            // 
-            this.search_box.Location = new System.Drawing.Point(12, 13);
-            this.search_box.Name = "search_box";
-            this.search_box.Size = new System.Drawing.Size(330, 20);
-            this.search_box.TabIndex = 2;
-            this.search_box.TextChanged += new System.EventHandler(this.search_box_TextChanged);
             // 
             // Patients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.search_box);
             this.Controls.Add(this.create_button);
             this.Controls.Add(this.Patients_datagrid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -81,7 +71,6 @@
             this.Load += new System.EventHandler(this.Patients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Patients_datagrid)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -89,6 +78,5 @@
 
         private System.Windows.Forms.DataGridView Patients_datagrid;
         private System.Windows.Forms.Button create_button;
-        private System.Windows.Forms.TextBox search_box;
     }
 }
