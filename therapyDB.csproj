@@ -150,6 +150,18 @@
     <Compile Include="form\LocationSelector.Designer.cs">
       <DependentUpon>LocationSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\Meeting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Meeting.Designer.cs">
+      <DependentUpon>Meeting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\Meetings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\Meetings.Designer.cs">
+      <DependentUpon>Meetings.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\Patient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +179,12 @@
     </Compile>
     <Compile Include="form\Patients.Designer.cs">
       <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\PatientSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\PatientSelector.Designer.cs">
+      <DependentUpon>PatientSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="form\Room.cs">
       <SubType>Form</SubType>
@@ -198,6 +216,12 @@
     <Compile Include="form\RoomTimes.Designer.cs">
       <DependentUpon>RoomTimes.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\RoomTimeSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\RoomTimeSelector.Designer.cs">
+      <DependentUpon>RoomTimeSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\Therapist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +233,12 @@
     </Compile>
     <Compile Include="form\Therapists.Designer.cs">
       <DependentUpon>Therapists.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\TreatmentSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\TreatmentSelector.Designer.cs">
+      <DependentUpon>TreatmentSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="form\Time.cs">
       <SubType>Form</SubType>
@@ -263,6 +293,12 @@
     <EmbeddedResource Include="form\LocationSelector.resx">
       <DependentUpon>LocationSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form\Meeting.resx">
+      <DependentUpon>Meeting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\Meetings.resx">
+      <DependentUpon>Meetings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\Patient.resx">
       <DependentUpon>Patient.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\Patients.resx">
       <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\PatientSelector.resx">
+      <DependentUpon>PatientSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Room.resx">
       <DependentUpon>Room.cs</DependentUpon>
@@ -287,11 +326,17 @@
     <EmbeddedResource Include="form\RoomTimes.resx">
       <DependentUpon>RoomTimes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form\RoomTimeSelector.resx">
+      <DependentUpon>RoomTimeSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\Therapist.resx">
       <DependentUpon>Therapist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Therapists.resx">
       <DependentUpon>Therapists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\TreatmentSelector.resx">
+      <DependentUpon>TreatmentSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form\Time.resx">
       <DependentUpon>Time.cs</DependentUpon>

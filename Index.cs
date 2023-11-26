@@ -55,7 +55,7 @@ namespace therapyDB
 
         private void meetings_button_Click(object sender, EventArgs e)
         {
-
+            new Meetings().Show();
         }
 
         private void room_button_Click(object sender, EventArgs e)

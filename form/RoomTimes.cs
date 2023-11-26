@@ -25,10 +25,11 @@ namespace therapyDB.form
 
             using (DatabaseEntities db = new DatabaseEntities())
             {
-                var data = db.treatments.OrderBy(e => e.tre_id).Select(e => new
+                var data = db.room_times.OrderBy(e => e.rti_id).Select(e => new
                 {
-                    e.tre_id,
-                    e.name
+                    e.rti_id,
+                    e.room_id,
+                    e.time_id
                 }).ToList();
 
                 RoomTime_datagrid.DataSource = data;

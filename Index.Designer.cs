@@ -49,7 +49,7 @@
             this.patient_files.Name = "patient_files";
             this.patient_files.Size = new System.Drawing.Size(154, 51);
             this.patient_files.TabIndex = 0;
-            this.patient_files.Text = "Patient files";
+            this.patient_files.Text = "Patient";
             this.patient_files.UseVisualStyleBackColor = true;
             this.patient_files.Click += new System.EventHandler(this.patient_files_Click);
             // 
