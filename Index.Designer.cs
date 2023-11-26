@@ -38,6 +38,7 @@
             this.welcome = new System.Windows.Forms.Label();
             this.meetings_button = new System.Windows.Forms.Button();
             this.address_button = new System.Windows.Forms.Button();
+            this.room_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // patient_files
@@ -128,6 +129,7 @@
             this.meetings_button.TabIndex = 8;
             this.meetings_button.Text = "Meetings";
             this.meetings_button.UseVisualStyleBackColor = true;
+            this.meetings_button.Click += new System.EventHandler(this.meetings_button_Click);
             // 
             // address_button
             // 
@@ -138,12 +140,25 @@
             this.address_button.TabIndex = 7;
             this.address_button.Text = "Addresses";
             this.address_button.UseVisualStyleBackColor = true;
+            this.address_button.Click += new System.EventHandler(this.address_button_Click);
+            // 
+            // room_button
+            // 
+            this.room_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.room_button.Location = new System.Drawing.Point(336, 387);
+            this.room_button.Name = "room_button";
+            this.room_button.Size = new System.Drawing.Size(154, 51);
+            this.room_button.TabIndex = 9;
+            this.room_button.Text = "Rooms";
+            this.room_button.UseVisualStyleBackColor = true;
+            this.room_button.Click += new System.EventHandler(this.room_button_Click);
             // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.room_button);
             this.Controls.Add(this.meetings_button);
             this.Controls.Add(this.address_button);
             this.Controls.Add(this.welcome);
@@ -173,5 +188,6 @@
         private System.Windows.Forms.Label welcome;
         private System.Windows.Forms.Button meetings_button;
         private System.Windows.Forms.Button address_button;
+        private System.Windows.Forms.Button room_button;
     }
 }

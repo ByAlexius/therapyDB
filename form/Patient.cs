@@ -149,11 +149,6 @@ namespace therapyDB.form
             loadAddress();
         }
 
-        private void open_button_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Patient_FormClosed(object sender, FormClosedEventArgs e)
         {
             PatientClosed?.Invoke(this, true);

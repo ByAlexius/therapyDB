@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="83195d2736a642828ae7eddcca366ffd" Name="Diagram1">
+      <Diagram DiagramId="10bd94a88b4f4ba797ea70afb388769c" Name="Diagram1">
         <EntityTypeShape EntityType="DatabaseModel.addresses" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.locations" Width="1.5" PointX="1.5" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.meetings" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
@@ -15,16 +15,16 @@
         <EntityTypeShape EntityType="DatabaseModel.therapists" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.times" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DatabaseModel.treatments" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="DatabaseModel.FK__locations__addre__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__patients__addres__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__rooms__location___5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__meetings__patien__778AC167" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__meetings__room_t__787EE5A0" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__meetings__therap__04E4BC85" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__room_time__room___6477ECF3" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__room_time__time___656C112C" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__Table__therapist__73BA3083" ManuallyRouted="false" />
-        <AssociationConnector Association="DatabaseModel.FK__Table__treatment__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__locations__addre__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__patients__addres__22751F6C" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__rooms__location___2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__meetings__patien__236943A5" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__meetings__room_t__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__meetings__therap__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__room_time__room___2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__room_time__time___367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__therapist__thera__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__therapist__treat__395884C4" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

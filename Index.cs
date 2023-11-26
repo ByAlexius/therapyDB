@@ -30,7 +30,7 @@ namespace therapyDB
 
         private void therapist_button_Click(object sender, EventArgs e)
         {
-
+            new Therapists().Show();
         }
 
         private void locations_buttons_Click(object sender, EventArgs e)
@@ -46,6 +46,21 @@ namespace therapyDB
         private void times_button_Click(object sender, EventArgs e)
         {
             new Times().Show();
+        }
+
+        private void address_button_Click(object sender, EventArgs e)
+        {
+            new Addresses().Show();
+        }
+
+        private void meetings_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void room_button_Click(object sender, EventArgs e)
+        {
+            new Rooms().Show();
         }
     }
 }

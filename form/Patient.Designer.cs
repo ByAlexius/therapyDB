@@ -41,7 +41,6 @@
             this.phone_text = new System.Windows.Forms.TextBox();
             this.phone_label = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.open_button = new System.Windows.Forms.Button();
             this.address_change_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -116,7 +115,7 @@
             // meetings_label
             // 
             this.meetings_label.AutoSize = true;
-            this.meetings_label.Location = new System.Drawing.Point(480, 133);
+            this.meetings_label.Location = new System.Drawing.Point(484, 133);
             this.meetings_label.Name = "meetings_label";
             this.meetings_label.Size = new System.Drawing.Size(50, 13);
             this.meetings_label.TabIndex = 8;
@@ -141,20 +140,10 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(433, 162);
+            this.comboBox1.Location = new System.Drawing.Point(437, 162);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(176, 21);
             this.comboBox1.TabIndex = 12;
-            // 
-            // open_button
-            // 
-            this.open_button.Location = new System.Drawing.Point(628, 160);
-            this.open_button.Name = "open_button";
-            this.open_button.Size = new System.Drawing.Size(75, 23);
-            this.open_button.TabIndex = 13;
-            this.open_button.Text = "Open";
-            this.open_button.UseVisualStyleBackColor = true;
-            this.open_button.Click += new System.EventHandler(this.open_button_Click);
             // 
             // address_change_button
             // 
@@ -170,9 +159,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(725, 296);
+            this.ClientSize = new System.Drawing.Size(678, 296);
             this.Controls.Add(this.address_change_button);
-            this.Controls.Add(this.open_button);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.phone_text);
             this.Controls.Add(this.phone_label);
@@ -208,7 +196,6 @@
         private System.Windows.Forms.TextBox phone_text;
         private System.Windows.Forms.Label phone_label;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button open_button;
         private System.Windows.Forms.Button address_change_button;
     }
 }
