@@ -20,7 +20,7 @@ namespace therapyDB
 
         private void copyright_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/ByAlexius");
+            
         }
 
         private void patient_files_Click(object sender, EventArgs e)
