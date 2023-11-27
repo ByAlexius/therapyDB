@@ -51,6 +51,7 @@
             // 
             // time_text
             // 
+            this.time_text.Enabled = false;
             this.time_text.Location = new System.Drawing.Point(298, 38);
             this.time_text.Name = "time_text";
             this.time_text.Size = new System.Drawing.Size(147, 20);
@@ -67,6 +68,7 @@
             // 
             // room_text
             // 
+            this.room_text.Enabled = false;
             this.room_text.Location = new System.Drawing.Point(36, 38);
             this.room_text.Name = "room_text";
             this.room_text.Size = new System.Drawing.Size(152, 20);

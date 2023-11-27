@@ -50,6 +50,7 @@
             // 
             // location_text
             // 
+            this.location_text.Enabled = false;
             this.location_text.Location = new System.Drawing.Point(270, 36);
             this.location_text.Name = "location_text";
             this.location_text.Size = new System.Drawing.Size(147, 20);

@@ -82,6 +82,7 @@
             // 
             // address_text
             // 
+            this.address_text.Enabled = false;
             this.address_text.Location = new System.Drawing.Point(16, 163);
             this.address_text.Name = "address_text";
             this.address_text.Size = new System.Drawing.Size(232, 20);
